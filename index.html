@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Patrick Sanders About Page</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="jumbotron text-left">
+        <h1>Weather</h1>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+          <div class="page-header">
+            <h1>City</h1>
+            <input id="userInput" type="text"/>
+            <button id="submitBtn">submit</button>
+          </div>
+          <div class="row">
+            <div class="col-md-3">
+                <div class="city"></div>
+                <div class="wind"></div>
+                <div class="humidity"></div>
+                <div class="temp"></div>
+            </div>
+            <div class="col-md-9">
+              <p>
+              </p>
+            </div>
+          </div>
+        </div>
+  
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+
+var APIKey = "166a433c57516f51dfab1f7edaed8413";
+var userCity = "";
+
+$("#submitBtn").on("click", function () {
+
+console.log("button works");
+userCity = $("#userInput").val();
+var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + userCity + "&appid=" + APIKey;
+
+$.ajax({
+    url: queryURL,
+    method: "GET"
+}).then(function (response) {
+
+    console.log(response);
+
+    const cityName = response.name;
+    const cityWind = response.wind.speed;
+    const cityHumidity = response.main.humidity;
+    var cityTemp = response.main.temp;
+    console.log(cityTemp);
+
+    cityTemp = ((cityTemp - 273.15) * 1.8) + 32;
+    console.log(cityTemp.toFixed(2));
+    $('.city').text("City: " + cityName);
+    $('.wind').text("Windspeed: " + cityWind);
+    $('.humidity').text("Humidity: " + cityHumidity);
+    $('.temp').text("Temperature: " + cityTemp.toFixed(2) + "F");
+
+});
+});
+
+</script>
+
+
+
+  
+
+</body>
+
+</html>

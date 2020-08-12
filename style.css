@@ -1,0 +1,53 @@
+.jumbotron {
+    background-image: url("https://image.freepik.com/free-photo/dark-blue-product-background_53876-89503.jpg");
+    background-size: cover;
+    color: white;
+  }
+
+  .jumbotron h1{
+      color: whitesmoke;
+      padding-left: 20px;
+  }
+
+  .container {
+    background-color: white;
+    float: left;
+    padding-left: 25px;
+    margin-left: 25px;
+    padding-bottom: 25px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  }
+  
+
+  body{
+    background-color: #ababab;
+  }
+
+  
+#navbar {
+    overflow: hidden;
+    background-color: #0f0f0f;
+  }
+  
+  
+  #navbar a {
+    float: right;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px;
+    text-decoration: none;
+    font-size: large;
+  }
+  
+
+  .sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+  
+ 
+  .sticky + .content {
+    padding-top: 60px;
+  } 
